@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+
+
+public class MaxIncreasingSubstr {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+
+        String input = scanner.nextLine();
+
+        scanner.close();
+
+
+
+        String maxSubstr = "";
+
+        String currentSubstr = "";
+
+
+
+        for (int i = 0; i < input.length(); i++) {
+
+            if (i == 0 || input.charAt(i) > input.charAt(i - 1)) {
+
+                currentSubstr += input.charAt(i);
+
+            } else {
+
+                if (currentSubstr.length() > maxSubstr.length()) {
+
+                    maxSubstr = currentSubstr;
+
+                }
+
+                currentSubstr = "" + input.charAt(i);
+
+            }
+
+        }
+
+
+
+        if (currentSubstr.length() > maxSubstr.length()) {
+
+            maxSubstr = currentSubstr;
+
+        }
+
+
+
+        System.out.println("Maximum consecutive increasingly ordered substring: " + maxSubstr);
+
+    }
+
+}
